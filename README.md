@@ -1,15 +1,15 @@
-# Pipeline de Big Data: Docker, Kafka e Jupyter Notebook
+# Data Pipeline: Docker, Kafka e Jupyter Notebook
 
 ![Machine Learning Banner](Images/Machine_Learning_Image.jfif)
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
-2. [Project PDF](#Project-PDF)
-3. [Creating the Directory and Configuring the Environment](#Creating-the-Directory-and-Configuring-the-Environment)
-4. [Upload Services with Docker Compose](#Upload-Services-with-Docker-Compose)
-5. [Practical Execution of Kafka in Docker Environment](#Practical-Execution-of-Kafka-in-Docker-Environment)
-6. [Practical case - Kafka with Jupyter Notebook](#Practical case - Kafka with Jupyter Notebook)
-7. [Conclusion](#Conclusion)
+2. [Project PDF](#project-pdf)
+3. [Creating the Directory and Configuring the Environment](#creating-the-directory-and-configuring-the-environment)
+4. [Starting Services with Docker Compose](#starting-services-with-docker-compose)
+5. [Executing Kafka in the Docker Environment](#executing-kafka-in-the-docker-environment)
+6. [Practical Case - Kafka with Jupyter Notebook](#practical-case---kafka-with-jupyter-notebook)
+7. [Conclusion](#conclusion)
 8. [Author](#author)
 
 ## Project Overview
@@ -37,32 +37,38 @@ To view the PDF file, you can access it via the following link:
 
 ## Creating the Directory and Configuring the Environment
 
-Access the Big Data Docker repository on GitHub, where all the necessary files are available for download, including the docker-compose.yml file. Download the repository to set up your big data environment. Follow the detailed instructions in the repository to complete the configuration.
-
-[Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigdata_docker)
-
-
+Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigdata_docker) on GitHub. This repository contains all the necessary files, including the `docker-compose.yml`, to set up your Big Data environment. Follow the detailed instructions in the repository to complete the configuration.
 
 ## Upload Services with Docker Compose
 
-- **Initializing Kafka**:
-1.	Navigate to the project directory:
-cd "C:\docker\bigdata_docker"
-2.	Upload Kafka's service:
-docker-compose up -d kafka
+### Initializing Kafka
+1. Navigate to the project directory:
+    ```bash
+    cd "C:\docker\bigdata_docker"
+    ```
+2. Upload Kafka's service:
+    ```bash
+    docker-compose up -d kafka
+    ```
+    
 
-- **Initializing Jupyter Notebook**:
+### Initializing Jupyter Notebook
 Upload the Jupyter Notebook service:
+```bash
 docker-compose up -d jupyter-notebook-custom
 
-- **Check Active Containers**:
+### Check Active Containers
 Run the command to check the containers:
+
+```bash
 docker ps
 Output Example:
-CONTAINER ID IMAGE COMMAND STATUS PORTS
-dd860f2ccd5d fjardim/kafka "start-kafka.sh" Up 16 minutes 0.0.0.0:9092->9092/tcp
-7c5671d41277 fjardim/jupyter-spark "/opt/docker/bin/ent..."   Up 24 seconds 0.0.0.0:8889->8889/tcp
-a3ec15345d8a fjardim/zookeeper "/bin/sh -c '/usr/sb..."   Up 16 minutes 0.0.0.0:2181->2181/tcp
+
+bash
+CONTAINER ID   IMAGE                   COMMAND                  STATUS        PORTS
+dd860f2ccd5d   fjardim/kafka           "start-kafka.sh"         Up 16 minutes  0.0.0.0:9092->9092/tcp
+7c5671d41277   fjardim/jupyter-spark   "/opt/docker/bin/ent..." Up 24 seconds 0.0.0.0:8889->8889/tcp
+a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0.0.0.0:2181->2181/tcp
 
 
 ## Practical Execution of Kafka in Docker Environment
