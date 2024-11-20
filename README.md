@@ -56,6 +56,7 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
 Upload the Jupyter Notebook service:
 ```bash
 docker-compose up -d jupyter-notebook-custom
+```
 
 ### Check Active Containers
 Run the command to check the containers:
@@ -64,11 +65,11 @@ Run the command to check the containers:
 docker ps
 Output Example:
 
-bash
 CONTAINER ID   IMAGE                   COMMAND                  STATUS        PORTS
 dd860f2ccd5d   fjardim/kafka           "start-kafka.sh"         Up 16 minutes  0.0.0.0:9092->9092/tcp
 7c5671d41277   fjardim/jupyter-spark   "/opt/docker/bin/ent..." Up 24 seconds 0.0.0.0:8889->8889/tcp
 a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0.0.0.0:2181->2181/tcp
+```
 
 
 ## Practical Execution of Kafka in Docker Environment
