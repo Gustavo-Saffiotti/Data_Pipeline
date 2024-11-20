@@ -39,19 +39,18 @@ To view the PDF file, you can access it via the following link:
 
 Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigdata_docker) on GitHub. This repository contains all the necessary files, including the `docker-compose.yml`, to set up your Big Data environment. Follow the detailed instructions in the repository to complete the configuration.
 
-## Upload Services with Docker Compose
+## Starting Services with Docker Compose
 
 ### Initializing Kafka
-1. Navigate to the project directory:
+Navigate to the project directory:
     ```bash
     cd "C:\docker\bigdata_docker"
     ```
-2. Upload Kafka's service:
+Upload Kafka's service:
     ```bash
     docker-compose up -d kafka
     ```
     
-
 ### Initializing Jupyter Notebook
 Upload the Jupyter Notebook service:
 ```bash
