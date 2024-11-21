@@ -153,6 +153,7 @@ In the Kafka container, use the consumer to view the messages:
 
 - **Consuming Messages**:
 Use the code below to consume messages:
+```python
 import pandas as pd
 from kafka import KafkaConsumer
 from IPython.display import display, clear_output
