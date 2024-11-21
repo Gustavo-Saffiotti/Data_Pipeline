@@ -42,26 +42,26 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
 ## Starting Services with Docker Compose
 
 ### Initializing Kafka
-Navigate to the project directory:
+- Navigate to the project directory:
     ```
     cd "C:\docker\bigdata_docker"
     ```
 
     
-Upload Kafka's service:
+- Upload Kafka's service:
     ```
     docker-compose up -d kafka
     ```
 
     
 ### Initializing Jupyter Notebook
-Upload the Jupyter Notebook service:
+- Upload the Jupyter Notebook service:
 ```bash
 docker-compose up -d jupyter-notebook-custom
 ```
 
 ### Check Active Containers
-Run the command to check the containers:
+- Run the command to check the containers:
 
 ```bash
 docker ps
@@ -69,7 +69,7 @@ docker ps
 
 
 
-Output Example:
+- Output Example:
 
 ```bash
 CONTAINER ID   IMAGE                   COMMAND                  STATUS        PORTS
@@ -92,7 +92,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
     ```
 
 - **Creating Topics**:
-  Create topics for testing:
+- Create topics for testing:
   ```bash
   ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic lesson
   ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic test
@@ -107,7 +107,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 
 
 - **Sending Messages to Kafka**:
-Use producer to send messages:
+- Use producer to send messages:
 ```bash
 ./kafka-console-producer.sh --broker-list kafka:9092 --topic class
 Send messages like:
@@ -117,7 +117,7 @@ new msg from console
 ```
 
 - **Consuming Messages**:
-In the Kafka container, use the consumer to view the messages:
+- In the Kafka container, use the consumer to view the messages:
 ```bash
 ./kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic lesson
 ```
@@ -126,7 +126,7 @@ In the Kafka container, use the consumer to view the messages:
 
 - **Sending Messages**:
 
-In Jupyter Notebook, run the following code:  
+- In Jupyter Notebook, run the following code:  
   ```python
   from kafka import KafkaProducer
   import time
@@ -161,7 +161,7 @@ In Jupyter Notebook, run the following code:
 
 - **Consuming Messages**:
 
-Use the code below to consume messages:
+- Use the code below to consume messages:
 ```python
 import pandas as pd
 from kafka import KafkaConsumer
