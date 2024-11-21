@@ -79,7 +79,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 ```
 
 
-## Practical Execution of Kafka in Docker Environment
+## Kafka in Docker Environment
 
 - **Accessing the Kafka Container**:
   - Enter the container:
