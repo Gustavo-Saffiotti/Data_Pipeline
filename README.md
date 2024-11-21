@@ -4,21 +4,22 @@
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
-2. [Project PDF](#project-pdf)
-3. [Creating the Directory and Configuring the Environment](#creating-the-directory-and-configuring-the-environment)
-4. [Starting Services with Docker Compose](#starting-services-with-docker-compose)
-5. [Executing Kafka in the Docker Environment](#executing-kafka-in-the-docker-environment)
-6. [Practical Case - Kafka with Jupyter Notebook](#practical-case---kafka-with-jupyter-notebook)
-7. [Conclusion](#conclusion)
-8. [Author](#author)
+2. [Tools and Skills Used:](#tools-and-skills-used:)
+3. [Project PDF](#project-pdf)
+4. [Creating the Directory and Configuring the Environment](#creating-the-directory-and-configuring-the-environment)
+5. [Starting Services with Docker Compose](#starting-services-with-docker-compose)
+6. [Kafka in Docker Environment](#kafka-in-docker-environment)
+7. [Case Study - Kafka with Jupyter Notebook](#case-study---kafka-with-jupyter-notebook)
+8. [Conclusion](#conclusion)
+9. [Author](#author)
 
-## Project Overview
+### Project Overview
 
 In this project, we address the creation of a Big Data environment using Docker to orchestrate several essential services for processing and analyzing large volumes of data. We use Kafka as a tool for ingesting and managing data flows, Jupyter Notebook for interactivity and data analysis, and several other frameworks that are widely used in the Big Data ecosystem.
 The configuration of the environment is done in an automated way using Docker and Docker Compose, which allows the creation and management of multiple containers to run the services in an efficient and isolated way. The integration between these tools provides a robust foundation for exploring data at scale, processing it in real-time, and performing detailed analysis with ease.
 
 
-## Project PDF
+### Project PDF
 
 To view the PDF file, you can access it via the following link:
 
@@ -41,7 +42,7 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
 
 ### Starting Services with Docker Compose
 
-## Initializing Kafka
+**Initializing Kafka**
 - Navigate to the project directory:
     ```
     cd "C:\docker\bigdata_docker"
@@ -54,13 +55,13 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
     ```
 
     
-## Initializing Jupyter Notebook
+**Initializing Jupyter Notebook**
 - Upload the Jupyter Notebook service:
 ```bash
 docker-compose up -d jupyter-notebook-custom
 ```
 
-## Check Active Containers
+**Check Active Containers**
 - Run the command to check the containers:
 
 ```bash
@@ -81,7 +82,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 
 ### Kafka in Docker Environment
 
-- **Accessing the Kafka Container**:
+**Accessing the Kafka Container**
   - Enter the container:
     ```bash
     docker exec -it kafka bash
@@ -91,7 +92,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
     cd /opt/kafka/bin
     ```
 
-- **Creating Topics**:
+**Creating Topics**
 - Create topics for testing:
   ```bash
   ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic lesson
@@ -100,13 +101,13 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
   ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs
   ```
 
-- **List the topics Created**:
+**List the topics Created**
 ```bash
 ./kafka-topics.sh --list --zookeeper zookeeper:2181
 ```
 
 
-- **Sending Messages to Kafka**:
+**Sending Messages**
 - Use producer to send messages:
 ```bash
 ./kafka-console-producer.sh --broker-list kafka:9092 --topic class
@@ -116,15 +117,15 @@ Data ingestion
 new msg from console
 ```
 
-- **Consuming Messages**:
+**Consuming Messages**
 - In the Kafka container, use the consumer to view the messages:
 ```bash
 ./kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic lesson
 ```
 
-## Practical Case - Kafka with Jupyter Notebook
+### Case Study - Kafka with Jupyter Notebook
 
-- **Sending Messages**:
+**Sending Messages**
 
 - In Jupyter Notebook, run the following code:  
   ```python
@@ -159,7 +160,7 @@ new msg from console
 
 
 
-- **Consuming Messages**:
+**Consuming Messages**:
 
 - Use the code below to consume messages:
 ```python
@@ -223,7 +224,7 @@ else:
 
 
 
-## Conclusion
+### Conclusion
 
 With the completion of this project, it was possible to configure a Big Data environment in a practical and effective way using Docker. The integration of Kafka and Jupyter Notebook made it possible to ingest and analyze logs in real time, while the graphical visualization in matplotlib allowed for easy and immediate tracking of the processed data.
 The use of Docker and Docker Compose made the configuration of services simple and reusable, making it possible to replicate the Big Data environment on any system. In addition, the implementation of a producer and consumer for Kafka demonstrated a practical application of data ingestion and analysis, with logging and error detection.
@@ -231,7 +232,7 @@ This environment provides a solid foundation for future studies, where it is pos
 This project demonstrates the importance of tools such as Docker and Kafka in the Big Data ecosystem, offering a scalable and flexible architecture to explore, process, and visualize data in real time.
 
 
-## Author
+### Author
 
 - [LinkedIn](https://www.linkedin.com/in/gustavo-maldonado-saffiotti) 
 - [GitHub Profile](https://github.com/Gustavo-Saffiotti)
