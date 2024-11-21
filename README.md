@@ -46,6 +46,7 @@ Navigate to the project directory:
     ```bash
     cd "C:\docker\bigdata_docker"
     ```
+    
 Upload Kafka's service:
     ```bash
     docker-compose up -d kafka
@@ -73,19 +74,26 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 
 ## Practical Execution of Kafka in Docker Environment
 
+## Practical Execution of Kafka in Docker Environment
+
 - **Accessing the Kafka Container**:
-Enter the container:
-Cmd
-Docker exec -it Kafka bash
-Navigate to the Kafka directory:
-cd /opt/kafka/bin
+  - Enter the container:
+    ```bash
+    docker exec -it kafka bash
+    ```
+  - Navigate to the Kafka directory:
+    ```bash
+    cd /opt/kafka/bin
+    ```
 
 - **Creating Topics**:
-Create topics for testing:
-./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic lesson
-./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic test
-./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic msg
-./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs
+  Create topics for testing:
+  ```bash
+  ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic lesson
+  ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic test
+  ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic msg
+  ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs
+  ```
 
 List the topics created:
 ./kafka-topics.sh --list --zookeeper zookeeper:2181
