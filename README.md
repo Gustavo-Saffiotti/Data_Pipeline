@@ -1,6 +1,6 @@
 # Data Pipeline: Docker, Kafka e Jupyter Notebook
 
-![Machine Learning Banner](Images/Machine_Learning_Image.jfif)
+![Kafka_docker_jupyter](images/Kafka_docker_jupyter.jpg)
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
@@ -23,7 +23,7 @@ The configuration of the environment is done in an automated way using Docker an
 
 To view the PDF file, you can access it via the following link:
 
-- [Project PDF](Vehicle_price_prediction.ipynb)
+- [Project PDF](Data_Pipeline_Docker_Kafka_Jupyter_Notebook.pdf)
 
 
 ### Tools and Skills Used
@@ -34,7 +34,7 @@ To view the PDF file, you can access it via the following link:
 - **Pandas**: Python library for data manipulation and analysis, essential for information processing and visualization.
 - **Matplotlib**: Library for creating graphs and visualizations, allowing you to represent the distribution of logs and analyzed data.
 
-![EDA Example](Images/Heatmap.png)
+
 
 ### Creating the Directory and Configuring the Environment
 
@@ -220,7 +220,7 @@ else:
 ```
 
 
-![Model Result](Images/Result.png)
+![Logs Result](images/Kafka_jupyter_bar_chart.jpg)
 
 
 
