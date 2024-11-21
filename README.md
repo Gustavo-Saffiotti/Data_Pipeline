@@ -4,7 +4,7 @@
 
 ## Table of Contents
 1. [Project Overview](#project-overview)
-2. [Tools and Skills Used:](#tools-and-skills-used:)
+2. [Tools and Skills Used:](#tools-and-skills-used)
 3. [Project PDF](#project-pdf)
 4. [Creating the Directory and Configuring the Environment](#creating-the-directory-and-configuring-the-environment)
 5. [Starting Services with Docker Compose](#starting-services-with-docker-compose)
@@ -26,7 +26,7 @@ To view the PDF file, you can access it via the following link:
 - [Project PDF](Vehicle_price_prediction.ipynb)
 
 
-### Tools and Skills Used:
+### Tools and Skills Used
 - **Docker**: Container platform for creating and managing isolated environments, enabling efficient execution of applications and services.
 - **Docker Compose**: Tool to define and run multi-container applications, simplifying the configuration and orchestration of services.
 - **Apache Kafka**: Distributed messaging system used for ingesting, storing, and processing large volumes of data in real time.
