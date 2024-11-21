@@ -35,13 +35,13 @@ To view the PDF file, you can access it via the following link:
 
 ![EDA Example](Images/Heatmap.png)
 
-## Creating the Directory and Configuring the Environment
+### Creating the Directory and Configuring the Environment
 
 Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigdata_docker) on GitHub. This repository contains all the necessary files, including the `docker-compose.yml`, to set up your Big Data environment. Follow the detailed instructions in the repository to complete the configuration.
 
-## Starting Services with Docker Compose
+### Starting Services with Docker Compose
 
-### Initializing Kafka
+## Initializing Kafka
 - Navigate to the project directory:
     ```
     cd "C:\docker\bigdata_docker"
@@ -54,13 +54,13 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
     ```
 
     
-### Initializing Jupyter Notebook
+## Initializing Jupyter Notebook
 - Upload the Jupyter Notebook service:
 ```bash
 docker-compose up -d jupyter-notebook-custom
 ```
 
-### Check Active Containers
+## Check Active Containers
 - Run the command to check the containers:
 
 ```bash
@@ -79,7 +79,7 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 ```
 
 
-## Kafka in Docker Environment
+### Kafka in Docker Environment
 
 - **Accessing the Kafka Container**:
   - Enter the container:
