@@ -43,7 +43,6 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
 
 ### Initializing Kafka
 Navigate to the project directory:
-
     ```
     cd "C:\docker\bigdata_docker"
     ```
