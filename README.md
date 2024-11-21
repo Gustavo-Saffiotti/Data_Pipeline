@@ -43,12 +43,12 @@ Clone the [Big Data Docker repository](https://github.com/Gustavo-Saffiotti/bigd
 
 ### Initializing Kafka
 Navigate to the project directory:
-    ```bash
+    ```
     cd "C:\docker\bigdata_docker"
     ```
     
 Upload Kafka's service:
-    ```bash
+    ```
     docker-compose up -d kafka
     ```
     
@@ -74,8 +74,6 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
 
 ## Practical Execution of Kafka in Docker Environment
 
-## Practical Execution of Kafka in Docker Environment
-
 - **Accessing the Kafka Container**:
   - Enter the container:
     ```bash
@@ -95,64 +93,74 @@ a3ec15345d8a   fjardim/zookeeper       "/bin/sh -c '/usr/sb..." Up 16 minutes  0
   ./kafka-topics.sh --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic logs
   ```
 
-List the topics created:
+- **List the topics Created**:
+```bash
 ./kafka-topics.sh --list --zookeeper zookeeper:2181
+```
+
 
 - **Sending Messages to Kafka**:
 Use producer to send messages:
+```bash
 ./kafka-console-producer.sh --broker-list kafka:9092 --topic class
 Send messages like:
 test
 Data ingestion
 new msg from console
+```
 
 - **Consuming Messages**:
 In the Kafka container, use the consumer to view the messages:
+```bash
 ./kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic lesson
+```
 
-## Practical case - Kafka with Jupyter Notebook
+## Practical Case - Kafka with Jupyter Notebook
 
-- **Sending Messages**:
-In Jupyter Notebook, run the following code:
-from kafka import KafkaProducer
-import time 
-import random
+- **Sending Messages**:  
+  In Jupyter Notebook, run the following code:  
+  ```python
+  from kafka import KafkaProducer
+  import time
+  import random
 
-#Configure the producer
-producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
+  # Configure the producer
+  producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
-#Log simulation
-logs=[
-    "INFO - System Started",
-    "WARN - High latency detected",
-    "ERROR - Failed to connect to database",
-    "INFO - Requisition processed",
-    "ERROR - Service Unavailable"
-]
+  # Log simulation
+  logs = [
+      "INFO - System Started",
+      "WARN - High latency detected",
+      "ERROR - Failed to connect to database",
+      "INFO - Requisition processed",
+      "ERROR - Service Unavailable"
+  ]
 
-#Set the number of logs to be generated
-num_logs = 20# For example, 20 messages
+  # Set the number of logs to be generated
+  num_logs = 20  # For example, 20 messages
 
-#Send logs to Kafka
-for _ in range(num_logs):
-    log=random.choice(logs)
-    producer.send(topic='logs', value=log.encode('utf-8'))
-    print(f"Log sent: {log}")
-    time.sleep(2) # Send a log every 2 seconds
+  # Send logs to Kafka
+  for _ in range(num_logs):
+      log = random.choice(logs)
+      producer.send(topic='logs', value=log.encode('utf-8'))
+      print(f"Log sent: {log}")
+      time.sleep(2)  # Send a log every 2 seconds
 
-print("Log shipping completed.")
+  print("Log shipping completed.")
+  ```
+
 
 
 - **Consuming Messages**:
 Use the code below to consume messages:
-import pandas the pd
+import pandas as pd
 from kafka import KafkaConsumer
 from IPython.display import display, clear_output
 import matplotlib.pyplot as plt
 
-#Configure the consumer
+# Configure the consumer
 consumer = KafkaConsumer(
-    'logs', # Topic Name
+    'logs',  # Topic Name
     group_id='log_group',
     bootstrap_servers=['kafka:9092'],
     auto_offset_reset='earliest',
@@ -160,27 +168,27 @@ consumer = KafkaConsumer(
     value_deserializer=lambda x: x.decode('utf-8')
 )
 
-#Initialize data list to store logs
+# Initialize data list to store logs
 logs_data = []
 
 print("Consuming Kafka messages...")
 
 try:
-    for mensagem in consumer:
-        log=message.value# Decode the log
-        logs_data.append(log) # Add log to list
+    for message in consumer:
+        log = message.value  # Decode the log
+        logs_data.append(log)  # Add log to list
 
         # Create DataFrame
-        df = pd. DataFrame(logs_data, columns=['Log'])
+        df = pd.DataFrame(logs_data, columns=['Log'])
 
         # Update real-time display
-        clear_output(wait=True) # Clear previous exit
-        display(df.tail(10)) # Show last 10 logs
+        clear_output(wait=True)  # Clear previous output
+        display(df.tail(10))  # Show last 10 logs
 
 except KeyboardInterrupt:
     print("\nConsumption stopped by user.")
 
-#Create distribution chart after consuming logs
+# Create distribution chart after consuming logs
 if logs_data:
     # Create the 'Type' column by extracting the category from the log
     df['Type'] = df['Log'].str.split(' - ').str[0]
@@ -193,11 +201,12 @@ if logs_data:
     plt.title("Log Distribution")
     plt.xlabel("Log Type")
     plt.ylabel("Frequency")
-    plt.xticks(rotation=45) # Rotate labels for better viewing
-    plt.tight_layout() # Adjust layout to avoid cropping
+    plt.xticks(rotation=45)  # Rotate labels for better viewing
+    plt.tight_layout()  # Adjust layout to avoid cropping
     plt.show()
 else:
     print("No logs were consumed.")
+```
 
 
 ![Model Result](Images/Result.png)
