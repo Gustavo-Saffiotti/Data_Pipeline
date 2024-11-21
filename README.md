@@ -124,8 +124,9 @@ In the Kafka container, use the consumer to view the messages:
 
 ## Practical Case - Kafka with Jupyter Notebook
 
-- **Sending Messages**:  
-  In Jupyter Notebook, run the following code:  
+- **Sending Messages**:
+
+In Jupyter Notebook, run the following code:  
   ```python
   from kafka import KafkaProducer
   import time
@@ -159,6 +160,7 @@ In the Kafka container, use the consumer to view the messages:
 
 
 - **Consuming Messages**:
+
 Use the code below to consume messages:
 ```python
 import pandas as pd
